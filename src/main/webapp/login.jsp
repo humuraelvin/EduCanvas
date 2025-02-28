@@ -16,7 +16,6 @@
             </div>
         </nav>
 
-        <!-- Login Section -->
         <div class="container d-flex align-items-center justify-content-center" style="min-height: calc(100vh - 76px)">
             <div class="form-card">
                 <h2 class="text-center mb-4">Welcome Back</h2>
