@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class DatabaseUtil {
     // Database connection settings - update these with your actual values
-    private static final String URL = "jdbc:mysql://localhost:3306/your_database_name";
-    private static final String USER = "your_username";
-    private static final String PASSWORD = "your_password";
+    private static final String URL = "jdbc:mysql://localhost:3306/onlinesubmission";
+    private static final String USER = "root";
+    private static final String PASSWORD = "";
 
     public static Connection getConnection() throws SQLException {
         try {
