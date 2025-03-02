@@ -14,6 +14,8 @@ public class Assignment {
     private String title;
     private String description;
     private LocalDate deadline;
+    private String filePath;
+    private Integer classId;
 
     @ManyToOne
     @JoinColumn(name = "instructor_id")
@@ -81,5 +83,21 @@ public class Assignment {
 
     public void setCreatedBy(User createdBy) {
         this.createdBy = createdBy;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public Integer getClassId() {
+        return classId;
+    }
+
+    public void setClassId(Integer classId) {
+        this.classId = classId;
     }
 }

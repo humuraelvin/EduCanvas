@@ -31,4 +31,22 @@ public class UserDAO {
                     .uniqueResult();
         }
     }
+
+    public void updatePassword(Long userId, String hashedPassword) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            User user = session.get(User.class, userId);
+            if (user != null) {
+                user.setPassword(hashedPassword);
+                session.merge(user);
+            }
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
 }

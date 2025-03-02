@@ -20,6 +20,9 @@
             <label>Password:</label>
             <input type="password" class="form-control" name="password" required>
         </div>
+        <div class="form-group">
+            <a href="login?action=forgotPassword">Forgot Password?</a>
+        </div>
         <button type="submit" class="btn btn-primary w-100">Login</button>
     </form>
     <p>Don't have an account? <a href="register.jsp">Register here</a></p>

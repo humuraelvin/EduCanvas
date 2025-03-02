@@ -10,6 +10,20 @@
     AssignmentDAO assignmentDAO = new AssignmentDAO();
     SubmissionDAO submissionDAO = new SubmissionDAO();
     List<Assignment> assignments = assignmentDAO.getAllAssignments();
+
+    String notification = (String) session.getAttribute("notification");
+    String notificationType = (String) session.getAttribute("notificationType");
+    
+    if (notification != null && !notification.isEmpty()) {
+%>
+    <div class="alert alert-<%= notificationType.equals("success") ? "success" : "danger" %>" role="alert">
+        <%= notification %>
+    </div>
+<%
+        // Clear the notification after displaying it
+        session.removeAttribute("notification");
+        session.removeAttribute("notificationType");
+    }
 %>
 <!DOCTYPE html>
 <html lang="en">

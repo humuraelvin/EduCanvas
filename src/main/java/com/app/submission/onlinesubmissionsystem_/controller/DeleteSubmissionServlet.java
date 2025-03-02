@@ -37,9 +37,23 @@ public class DeleteSubmissionServlet extends HttpServlet {
         Submission submission = submissionDAO.getSubmissionById(submissionId);
 
         if (submission != null && submission.getStudent().getId().equals(user.getId())) {
+            // Get assignment title for notification message
+            String assignmentTitle = submission.getAssignment().getTitle();
+            
+            // Delete file if it exists
             File file = new File(getServletContext().getRealPath("") + File.separator + submission.getFilePath());
             if (file.exists()) file.delete();
+            
+            // Delete submission from database
             submissionDAO.deleteSubmission(submissionId);
+            
+            // Set success notification in session
+            session.setAttribute("notification", "Your submission for '" + assignmentTitle + "' has been successfully deleted.");
+            session.setAttribute("notificationType", "success");
+        } else {
+            // Set error notification if submission doesn't exist or doesn't belong to user
+            session.setAttribute("notification", "Unable to delete submission. It may have been already deleted or you don't have permission.");
+            session.setAttribute("notificationType", "error");
         }
 
         response.sendRedirect("studentDashboard.jsp");
