@@ -7,8 +7,8 @@ import java.sql.SQLException;
 public class DatabaseUtil {
     // Database connection settings - update these with your actual values
     private static final String URL = "jdbc:mysql://localhost:3306/onlinesubmission";
-    private static final String USER = "java_user";
-    private static final String PASSWORD = "eljava";
+    private static final String USER = "root";
+    private static final String PASSWORD = "";
 
     public static Connection getConnection() throws SQLException {
         try {

@@ -20,7 +20,7 @@
         <div class="container d-flex align-items-center justify-content-center" style="min-height: calc(100vh - 76px)">
             <div class="form-card">
                 <h2 class="text-center mb-4">Welcome Back</h2>
-                <p class="text-center text-muted mb-4">Please login to your account</p>
+                <p class="text-center text-muted mb-4">Please login to your EduCanvas account</p>
 
                 <% if (request.getAttribute("error") != null) { %>
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
